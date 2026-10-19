@@ -157,6 +157,20 @@
 
   /* ===== sections ===== */
   section.reel{padding:100px 24px 60px; max-width:1180px; margin:0 auto;}
+
+  /* ===== section colour wash ===== */
+  section.reel{position:relative;}
+  section.reel::before{
+    content:""; position:absolute; top:0; left:50%; width:100vw; transform:translateX(-50%); height:520px;
+    background:radial-gradient(ellipse 60% 70% at 22% 40%, var(--glow, transparent), transparent 72%);
+    -webkit-mask-image:linear-gradient(180deg, transparent 0%, #000 30%, #000 65%, transparent 100%);
+            mask-image:linear-gradient(180deg, transparent 0%, #000 30%, #000 65%, transparent 100%);
+    pointer-events:none; z-index:0;
+  }
+  .reel[data-accent="dp"]{--glow:rgba(91,147,191,0.20);}
+  .reel[data-accent="ac"]{--glow:rgba(255,91,31,0.18);}
+  .reel[data-accent="personal"]{--glow:rgba(124,143,94,0.22);}
+  .reel-head{position:relative; z-index:1;}
   .reel-head{margin-bottom:52px; max-width:640px;}
   .reel-head h2{font-size:clamp(2rem, 5vw, 3.4rem); line-height:1;}
   .reel-head p{margin-top:16px; color:var(--muted); line-height:1.6; font-size:0.98rem;}
@@ -339,7 +353,7 @@
 <!-- ============ DOP ============ -->
 <section class="reel" id="dp" data-accent="dp">
   <div class="reel-head">
-    <div class="eyebrow">Behind the Viewfinder</div>
+    <div class="eyebrow">Light &amp; Frame</div>
     <h2>Director of Photography</h2>
     <p>Some of my latest work as director of photography.</p>
   </div>
@@ -384,7 +398,7 @@
 <!-- ============ 1ST AC ============ -->
 <section class="reel" id="ac" data-accent="ac">
   <div class="reel-head">
-    <div class="eyebrow">Camera Department</div>
+    <div class="eyebrow">On Set</div>
     <h2>1st Assistant Camera</h2>
     <p>Some of my latest focus pulling work.</p>
   </div>
